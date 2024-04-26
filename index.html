@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foodistan</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+    background-color: #b33a2e; /* Darker shade for better contrast */
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+        .container {
+            margin: 20px;
+        }
+        .recipe {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+        .recipe img {
+            width: 100%;
+            height: auto;
+        }
+        .recipe-details {
+            margin-top: 10px;
+        }
+        .recipe-details button {
+            margin-right: 10px;
+        }
+        footer {
+            background-color: #ff6347;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Foodistan</h1>
+        <nav>
+            <button onclick="showHome()">Home</button>
+            <button onclick="showMenu()">Menu</button>
+            <button onclick="showAbout()">About</button>
+        </nav>
+    </header>
+    <div id="content" class="container">
+        <!-- Content will be dynamically loaded here -->
+    </div>
+    <footer>
+        &copy; 2023 Foodistan. All rights reserved.
+    </footer>
+
+    <script>
+        function showHome() {
+            document.getElementById('content').innerHTML = `
+                <img src="https://cdn.dribbble.com/users/4913590/screenshots/15283932/media/b430f8df20aa4f1cc96e412c68db44d2.jpg" alt="Foodistan Logo">
+                <img src="https://d4t7t8y8xqo0t.cloudfront.net/resized/750X436/restaurant%2F649660%2Frestaurant020220816105121.jpg" alt="Restaurant Image">
+            `;
+        }
+
+        function showMenu() {
+            document.getElementById('content').innerHTML = `
+                <div class="recipe">
+                    <img src="https://littlesunnykitchen.com/wp-content/uploads/Chicke-tikka-masala-2-7.jpg" alt="Butter Chicken">
+                    <div class="recipe-details">
+                        <h2>Butter Chicken</h2>
+                        <p>Delicious butter chicken recipe.</p>
+                        <button onclick="showIngredients('Butter Chicken')">View Ingredients</button>
+                        <button onclick="orderRecipe('Butter Chicken')">Order</button>
+                        <p>Price: $10</p>
+                    </div>
+                </div>
+                <!-- Add more recipes here -->
+            `;
+        }
+
+        function showAbout() {
+            document.getElementById('content').innerHTML = `
+                <h2>About Foodistan</h2>
+                <p>Foodistan is a restaurant that serves delicious Indian cuisine.</p>
+            `;
+        }
+
+        function showIngredients(recipeName) {
+            alert(`Ingredients for ${recipeName}: List of ingredients here.`);
+        }
+
+        function orderRecipe(recipeName) {
+            alert(`Ordering ${recipeName}. Thank you!`);
+        }
+
+        // Initially show the home page
+        showHome();
+    </script>
+</body>
+</html>
